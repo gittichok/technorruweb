@@ -9,7 +9,7 @@ const lang = langFromParam(Astro.params.lang);
 const open = programs.programs.filter((p) => p.status === 'open');
 ---
 <ContentPage lang={lang} slug="admissions">
-  <a href={site.applyUrl} target="_blank" rel="noopener" class="mt-2 inline-block rounded bg-maroon px-6 py-3 font-semibold text-white no-underline hover:bg-maroon-dark">{t(lang, 'cta.apply')} →</a>
+  <a href={site.applyUrl} target="_blank" rel="noopener" class="mt-2 inline-block rounded bg-maroon px-6 py-3 font-semibold text-white no-underline hover:bg-maroon-dark">{t(lang, 'cta.apply')}</a>
   <h2 class="mb-4 mt-12 font-serif text-2xl font-bold text-maroon">{t(lang, 'label.fee')}</h2>
   <div class="max-w-3xl overflow-x-auto rounded-md border border-line">
     <table class="w-full text-left text-[15px]">

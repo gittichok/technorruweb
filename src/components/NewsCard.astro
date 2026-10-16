@@ -4,16 +4,19 @@ import { formatDate } from '../lib/routes';
 interface Props { lang: Lang; item: any }
 const { lang, item } = Astro.props;
 ---
-<article class="group relative flex flex-col overflow-hidden rounded-md border border-line bg-white transition hover:shadow-lg">
-  <div class="aspect-[16/10] overflow-hidden bg-gradient-to-br from-maroon to-maroon-deep">
+<article class="group relative flex flex-col">
+  <div class="aspect-[3/2] overflow-hidden bg-maroon-dark">
     {item.data.cover
-      ? <img src={item.data.cover} alt="" loading="lazy" class="h-full w-full object-cover transition group-hover:scale-105" />
-      : <div class="flex h-full items-center justify-center text-gold/60"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" /><circle cx="9" cy="10" r="2" /><path d="M21 16l-5-5-8 8" /></svg></div>}
+      ? <img src={item.data.cover} alt="" loading="lazy" class="h-full w-full object-cover" />
+      : <div class="blueprint h-full w-full"></div>}
   </div>
-  <div class="flex flex-1 flex-col p-5">
-    <span class="text-xs font-semibold text-gold-ink">{formatDate(item.data.date, lang)}{item.data.category && ` · ${item.data.category}`}</span>
-    <h3 class="mt-2 text-[17px] font-semibold leading-snug">
-      <a href={path(lang, `/news/${item.slug}`)} class="text-ink no-underline after:absolute after:inset-0 hover:text-maroon">{item.data.title}</a>
+  <div class="flex flex-1 flex-col pt-4">
+    <p class="flex flex-wrap gap-x-3 text-[15px]">
+      <time datetime={item.data.date.toISOString().slice(0, 10)} class="text-muted">{formatDate(item.data.date, lang)}</time>
+      {item.data.category && <span class="text-gold-ink">{item.data.category}</span>}
+    </p>
+    <h3 class="mt-1 text-lg leading-snug font-semibold">
+      <a href={path(lang, `/news/${item.slug}`)} class="text-ink no-underline after:absolute after:inset-0 group-hover:text-maroon group-hover:underline group-hover:decoration-gold">{item.data.title}</a>
     </h3>
   </div>
 </article>

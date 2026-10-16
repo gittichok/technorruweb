@@ -13,13 +13,13 @@ const lang = langFromParam(Astro.params.lang);
   <div class="container-site space-y-10 py-12 md:py-16">
     {programs.programs.map((p) => (
       <section>
-        <div class="mb-4 flex flex-wrap items-baseline justify-between gap-2 border-b-2 border-gold pb-2">
+        <div class="mb-2 flex flex-wrap items-baseline justify-between gap-2">
           <h2 class="font-serif text-xl font-bold text-maroon">{pick(p.name, lang)}</h2>
-          <a href={path(lang, `/education/programs/${p.slug}`)} class="text-sm font-semibold text-maroon">{t(lang, 'cta.details')} →</a>
+          <a href={path(lang, `/education/programs/${p.slug}`)} class="text-sm font-semibold text-maroon">{t(lang, 'cta.details')}</a>
         </div>
-        <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <ul class="grid border-t border-line sm:grid-cols-2 lg:grid-cols-3 sm:gap-x-10">
           {p.lecturers.map((l) => (
-            <li class="rounded-md border border-line bg-white px-4 py-3">
+            <li class="border-b border-line py-3">
               <div class="font-semibold">{l.name}</div>
               <div class="text-sm text-muted">{roleLabel(l.role, lang)}</div>
             </li>

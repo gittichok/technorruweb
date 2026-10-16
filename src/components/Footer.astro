@@ -18,7 +18,8 @@ const year = new Date().getFullYear() + (lang === 'th' ? 543 : 0);
         </div>
       </div>
       <p class="text-sm">{pick(site.address, lang)}</p>
-      <p class="mt-2 text-sm">{t(lang, 'label.tel')} <a href={`tel:${site.phoneTel}`} class="hover:text-gold-light">{pick(site.phone, lang)}</a> · <a href={`mailto:${site.email}`} class="hover:text-gold-light">{site.email}</a></p>
+      <p class="mt-2 text-sm">{t(lang, 'label.tel')} <a href={`tel:${site.phoneTel}`} class="hover:text-gold-light">{pick(site.phone, lang)}</a></p>
+      <p class="text-sm">{t(lang, 'label.email')} <a href={`mailto:${site.email}`} class="hover:text-gold-light">{site.email}</a></p>
       <p class="mt-2 text-sm">{t(lang, 'footer.hours')} {pick(site.hours, lang)}</p>
     </div>
     <div>

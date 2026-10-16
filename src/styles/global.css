@@ -23,8 +23,44 @@ html {
 }
 
 body {
-  @apply bg-white font-sans text-ink leading-relaxed;
+  @apply bg-white font-sans text-ink;
+  font-size: 17px;
+  line-height: 1.75; /* อักษรไทยมีสระบน-ล่าง ต้องการระยะบรรทัดมากกว่าละติน */
 }
+
+h1, h2, h3 {
+  text-wrap: balance;
+}
+
+/* ลายกระดาษเขียนแบบ: รากของคณะคือวิชางานช่างและเขียนแบบ (พ.ศ. 2498) */
+.blueprint {
+  background-color: var(--color-maroon);
+  background-image:
+    linear-gradient(rgba(232, 201, 119, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(232, 201, 119, 0.09) 1px, transparent 1px),
+    linear-gradient(rgba(232, 201, 119, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(232, 201, 119, 0.04) 1px, transparent 1px);
+  background-size: 96px 96px, 96px 96px, 24px 24px, 24px 24px;
+  background-position: -1px -1px;
+}
+
+/* เส้นบอกขนาดแบบแบบงานเขียนแบบ ใช้คั่นหัวข้อ */
+.dim-rule {
+  position: relative;
+  height: 9px;
+  border-bottom: 1px solid var(--color-gold);
+}
+.dim-rule::before,
+.dim-rule::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  width: 1px;
+  height: 9px;
+  background: var(--color-gold);
+}
+.dim-rule::before { left: 0; }
+.dim-rule::after { right: 0; }
 
 /* โหมดไว้อาลัย: admin เปิดจาก CMS (src/data/intro.json -> mourning) */
 html.mourning body {
@@ -35,22 +71,25 @@ html.mourning body {
   @apply mx-auto w-full max-w-[1240px] px-6;
 }
 
-.eyebrow {
-  @apply text-sm font-semibold tracking-[0.08em] text-gold-ink;
-}
-
 .section-title {
-  @apply font-serif text-3xl font-bold md:text-[34px];
+  @apply font-serif text-[28px] leading-snug font-bold text-ink md:text-[38px];
 }
 
+.link-quiet {
+  @apply font-semibold text-maroon underline decoration-gold decoration-2 underline-offset-[6px] hover:decoration-maroon;
+}
+
+.prose-site {
+  max-width: 68ch;
+}
 .prose-site h2 {
-  @apply mt-10 mb-3 font-serif text-2xl font-bold text-maroon;
+  @apply mt-12 mb-3 font-serif text-[26px] leading-snug font-bold text-maroon;
 }
 .prose-site h3 {
   @apply mt-6 mb-2 text-xl font-semibold;
 }
 .prose-site p {
-  @apply mb-4;
+  @apply mb-5;
 }
 .prose-site ul {
   @apply mb-4 list-disc pl-6;
@@ -65,4 +104,8 @@ html.mourning body {
 a:focus-visible,
 button:focus-visible {
   @apply outline-2 outline-offset-2 outline-gold;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; scroll-behavior: auto !important; }
 }

@@ -19,11 +19,11 @@ const { item, lang } = Astro.props;
 const { Content } = await render(item);
 ---
 <Base lang={lang} title={item.data.title} description={item.data.excerpt}>
-  <PageHero lang={lang} eyebrow={`${formatDate(item.data.date, lang)}${item.data.category ? ' · ' + item.data.category : ''}`} title={item.data.title}
+  <PageHero lang={lang} eyebrow={formatDate(item.data.date, lang)} title={item.data.title}
     crumbs={[{ label: t(lang, 'nav.news'), href: '/news' }]} />
   <article class="container-site max-w-3xl py-12 md:py-16">
     {item.data.cover && <img src={item.data.cover} alt="" class="mb-8 w-full rounded-md" />}
     <div class="prose-site"><Content /></div>
-    <a href={path(lang, '/news')} class="mt-10 inline-block font-semibold text-maroon">← {t(lang, 'cta.allNews')}</a>
+    <a href={path(lang, '/news')} class="mt-10 inline-block font-semibold text-maroon">{t(lang, 'cta.allNews')}</a>
   </article>
 </Base>

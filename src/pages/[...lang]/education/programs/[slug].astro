@@ -32,9 +32,9 @@ const facts = [
       )}
       {p.poster && <img src={p.poster} alt={pick(p.name, lang)} loading="lazy" class="mb-10 w-full max-w-xl rounded-md border border-line shadow-sm" />}
       <h2 class="mb-4 font-serif text-2xl font-bold text-maroon">{t(lang, 'label.lecturers')}</h2>
-      <ul class="grid gap-3 sm:grid-cols-2">
+      <ul class="grid border-t border-line sm:grid-cols-2 sm:gap-x-10">
         {p.lecturers.map((l) => (
-          <li class="rounded-md border border-line bg-white px-4 py-3">
+          <li class="border-b border-line py-3">
             <div class="font-semibold">{l.name}</div>
             <div class="text-sm text-muted">{roleLabel(l.role, lang)}</div>
           </li>
@@ -43,15 +43,15 @@ const facts = [
       <h2 class="mb-4 mt-10 font-serif text-2xl font-bold text-maroon">{L('โครงสร้างหลักสูตรและอาชีพ', 'Curriculum and careers')}</h2>
       <p class="text-muted">{L('รอข้อมูลรายละเอียดหลักสูตร (มคอ.2) โครงสร้างรายวิชา และอาชีพหลังจบการศึกษา', 'Curriculum structure, courses and career paths coming soon.')}</p>
     </div>
-    <aside class="h-fit rounded-md border-t-4 border-gold bg-cream p-6 lg:sticky lg:top-28">
+    <aside class="h-fit border-t-[3px] border-gold bg-cream p-6 lg:sticky lg:top-28">
       <dl class="space-y-4">
         {facts.map((f) => (
-          <div><dt class="text-xs font-semibold tracking-wide text-gold-ink">{f.label}</dt><dd class="font-semibold">{f.value}</dd></div>
+          <div><dt class="text-[15px] text-muted">{f.label}</dt><dd class="font-semibold">{f.value}</dd></div>
         ))}
       </dl>
       {p.status === 'open' && <a href={site.applyUrl} target="_blank" rel="noopener" class="mt-6 block rounded bg-maroon px-4 py-3 text-center font-semibold text-white no-underline hover:bg-maroon-dark">{t(lang, 'cta.apply')}</a>}
       {p.facebook && <a href={p.facebook} target="_blank" rel="noopener" class="mt-3 block rounded border border-maroon px-4 py-3 text-center font-semibold text-maroon no-underline hover:bg-white">{t(lang, 'label.facebook')}</a>}
-      <a href={path(lang, '/education/programs')} class="mt-4 block text-center text-sm text-maroon">← {t(lang, 'nav.education.programs')}</a>
+      <a href={path(lang, '/education/programs')} class="mt-4 block text-center text-sm text-maroon">{t(lang, 'nav.education.programs')}</a>
     </aside>
   </div>
 </Base>

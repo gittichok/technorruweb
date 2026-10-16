@@ -7,6 +7,7 @@ import Emblem from './Emblem.astro';
 
 interface Props { lang: Lang }
 const { lang } = Astro.props;
+const nameLines = lang === 'th' ? ['คณะเทคโนโลยี', 'อุตสาหกรรม'] : ['Faculty of', 'Industrial Technology'];
 const current = Astro.url.pathname.replace(/\/$/, '') || '/';
 const bare = current.replace(/^\/en(?=\/|$)/, '') || '/';
 const isActive = (href: string) => (href === '/' ? bare === '/' : bare.startsWith(href.split('/').slice(0, 2).join('/')));
@@ -39,8 +40,10 @@ const audiences = [
     <a href={path(lang, '/')} class="flex items-center gap-3 no-underline">
       <Emblem />
       <span class="flex flex-col leading-tight">
-        <span class="font-serif text-lg font-bold text-maroon md:text-xl">{t(lang, 'faculty.name')}</span>
-        <span class="text-xs text-muted md:text-[13px] xl:hidden 2xl:inline">{t(lang, 'faculty.sub')}</span>
+        <span class="font-serif text-lg leading-tight font-bold text-maroon md:text-xl">
+          {nameLines.map((l) => <span class="block whitespace-nowrap">{l}</span>)}
+        </span>
+        <span class="text-xs text-muted md:text-[13px] hidden sm:inline xl:hidden 2xl:inline">{t(lang, 'faculty.sub')}</span>
       </span>
     </a>
 
@@ -50,7 +53,7 @@ const audiences = [
           <li class="group relative">
             <a
               href={path(lang, item.href)}
-              class:list={['block rounded px-2.5 py-2 hover:bg-cream hover:text-maroon', isActive(item.href) ? 'text-maroon' : 'text-ink']}
+              class:list={['block rounded px-2 py-2 hover:bg-cream hover:text-maroon', isActive(item.href) ? 'text-maroon' : 'text-ink']}
               aria-haspopup={item.children ? 'true' : undefined}
             >
               {t(lang, item.key)}
