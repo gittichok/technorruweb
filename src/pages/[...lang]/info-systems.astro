@@ -1,0 +1,21 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import { t, pick } from '../../i18n/ui';
+import { langPaths, langFromParam } from '../../lib/routes';
+import site from '../../data/site.json';
+export function getStaticPaths() { return langPaths(); }
+const lang = langFromParam(Astro.params.lang);
+---
+<Base lang={lang} title={t(lang, 'nav.info')}>
+  <PageHero lang={lang} title={t(lang, 'nav.info')} crumbs={[{ label: t(lang, 'nav.info') }]} />
+  <div class="container-site grid gap-5 py-12 sm:grid-cols-2 md:py-16 lg:grid-cols-3">
+    {site.infoSystems.map((s) => (
+      <a href={s.url} target="_blank" rel="noopener" class="group rounded-md border border-line bg-white p-6 no-underline transition hover:border-gold hover:shadow-md">
+        <span class="mb-3 block h-1 w-10 bg-gold"></span>
+        <span class="block font-semibold text-maroon">{pick(s.name, lang)} <span class="inline-block transition group-hover:translate-x-1">↗</span></span>
+        <span class="mt-1 block text-sm text-muted">{pick(s.desc, lang)}</span>
+      </a>
+    ))}
+  </div>
+</Base>

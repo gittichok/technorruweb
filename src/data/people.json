@@ -1,0 +1,29 @@
+{
+  "executives": [
+    { "name": { "th": "อาจารย์ ดร.สุทธิดา การะเวก", "en": "Dr. Suthida Karawek" }, "position": { "th": "คณบดีคณะเทคโนโลยีอุตสาหกรรม", "en": "Dean" }, "photo": "" },
+    { "name": { "th": "ผู้ช่วยศาสตราจารย์ธนธัช มั่นมงคล", "en": "Asst. Prof. Thanathat Manmongkol" }, "position": { "th": "รองคณบดีฝ่ายวิชาการและวิจัย", "en": "Associate Dean for Academic Affairs and Research" }, "photo": "" },
+    { "name": { "th": "อาจารย์ ดร.สราวุธ อิศรานุวัฒน์", "en": "Dr. Sarawut Isaranuwat" }, "position": { "th": "รองคณบดีฝ่ายกิจการนักศึกษาและบริการวิชาการ", "en": "Associate Dean for Student Affairs and Academic Services" }, "photo": "" },
+    { "name": { "th": "ผู้ช่วยศาสตราจารย์กิ่งกาญจน์ กิตติสุนทโรภาศ", "en": "Asst. Prof. Kingkan Kittisunthoropas" }, "position": { "th": "รองคณบดีฝ่ายวางแผนและประกันคุณภาพการศึกษา", "en": "Associate Dean for Planning and Quality Assurance" }, "photo": "" },
+    { "name": { "th": "อาจารย์เมธี พรมศิลา", "en": "Mr. Methee Promsila" }, "position": { "th": "ที่ปรึกษาคณบดี", "en": "Advisor to the Dean" }, "photo": "" },
+    { "name": { "th": "รอข้อมูล", "en": "To be announced" }, "position": { "th": "หัวหน้าสำนักงานคณบดี", "en": "Head of the Dean's Office" }, "photo": "" }
+  ],
+  "deans": [
+    { "name": { "th": "อาจารย์ยุทธนา โพนน้อย", "en": "Mr. Yutthana Phonnoi" }, "term": { "th": "พ.ศ. 2538 - 2543", "en": "1995 - 2000" } },
+    { "name": { "th": "อาจารย์ชอบ บุญเอี่ยม", "en": "Mr. Chop Boon-iam" }, "term": { "th": "พ.ศ. 2544 - 2547", "en": "2001 - 2004" } },
+    { "name": { "th": "ผู้ช่วยศาสตราจารย์สมศักดิ์ คำมา", "en": "Asst. Prof. Somsak Khamma" }, "term": { "th": "30 ม.ค. 2548 - 29 ม.ค. 2552 และ 8 มี.ค. 2556 - 25 ต.ค. 2556", "en": "Jan 2005 - Jan 2009 and Mar 2013 - Oct 2013" } },
+    { "name": { "th": "ผู้ช่วยศาสตราจารย์ ดร.นภดล เชนะโยธิน", "en": "Asst. Prof. Dr. Noppadol Chenayothin" }, "term": { "th": "8 มี.ค. 2552 - 7 มี.ค. 2556", "en": "Mar 2009 - Mar 2013" } },
+    { "name": { "th": "อาจารย์อภิวัฒน์ วงศ์ณรัตน์", "en": "Mr. Apiwat Wongnarat" }, "term": { "th": "26 ต.ค. 2556 - 25 ต.ค. 2560", "en": "Oct 2013 - Oct 2017" } },
+    { "name": { "th": "อาจารย์เมธี พรมศิลา", "en": "Mr. Methee Promsila" }, "term": { "th": "26 ต.ค. 2560 - 25 ต.ค. 2568 (2 วาระ)", "en": "Oct 2017 - Oct 2025 (2 terms)" } },
+    { "name": { "th": "อาจารย์ ดร.สุทธิดา การะเวก", "en": "Dr. Suthida Karawek" }, "term": { "th": "26 ต.ค. 2568 - ปัจจุบัน", "en": "Oct 2025 - present" } }
+  ],
+  "staff": [
+    { "name": { "th": "นางวาสินี อิศรานุวัฒน์", "en": "Mrs. Wasinee Isaranuwat" }, "position": { "th": "เจ้าหน้าที่บริหารงานทั่วไป ชำนาญการ", "en": "General Administration Officer (Professional)" }, "photo": "" },
+    { "name": { "th": "นางสาวพิชญ์สินี เอี่ยมโอ", "en": "Ms. Pitsinee Iam-o" }, "position": { "th": "เจ้าหน้าที่บริหารงานทั่วไป", "en": "General Administration Officer" }, "photo": "" },
+    { "name": { "th": "นายวิษณุ พานิช", "en": "Mr. Wisanu Panich" }, "position": { "th": "นักวิชาการโสตทัศนศึกษา", "en": "Audio-Visual Officer" }, "photo": "" },
+    { "name": { "th": "นางสาววรรณวิภา แสงเทศ", "en": "Ms. Wanwipa Saengthet" }, "position": { "th": "เจ้าหน้าที่บริหารงานทั่วไป", "en": "General Administration Officer" }, "photo": "" },
+    { "name": { "th": "นางสาววราภรณ์ ด้วงเผือก", "en": "Ms. Waraporn Duangphueak" }, "position": { "th": "เจ้าหน้าที่บริหารงานทั่วไป", "en": "General Administration Officer" }, "photo": "" },
+    { "name": { "th": "นางสาวนันชีวา มณีฤทธิ์", "en": "Ms. Nanchiwa Maneerit" }, "position": { "th": "นักวิชาการศึกษา", "en": "Educational Officer" }, "photo": "" },
+    { "name": { "th": "นายกิตติโชค วรรณพิรุณ", "en": "Mr. Kittichok Wannapirun" }, "position": { "th": "นักวิชาการศึกษา", "en": "Educational Officer" }, "photo": "" },
+    { "name": { "th": "นางนุจรี จันทร์เจริญ", "en": "Mrs. Nujaree Chancharoen" }, "position": { "th": "เจ้าหน้าที่บริหารงานทั่วไป", "en": "General Administration Officer" }, "photo": "" }
+  ]
+}

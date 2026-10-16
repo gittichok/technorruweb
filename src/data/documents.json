@@ -1,0 +1,26 @@
+{
+  "handbook": [
+    { "title": { "th": "คู่มือนักศึกษา (รออัปโหลดไฟล์)", "en": "Student handbook (file coming soon)" }, "url": "" }
+  ],
+  "regulations": [
+    { "title": { "th": "ระเบียบว่าด้วยวินัยนักศึกษา พ.ศ. 2560", "en": "Student Discipline Regulation, 2017" }, "url": "https://drive.google.com/drive/folders/1J4dZpKkTBtWcnC7QoplHRCUm4qGIRk3Y" },
+    { "title": { "th": "ข้อบังคับว่าด้วยเครื่องแบบนักศึกษา พ.ศ. 2564", "en": "Student Uniform Regulation, 2021" }, "url": "https://drive.google.com/drive/folders/1J4dZpKkTBtWcnC7QoplHRCUm4qGIRk3Y" },
+    { "title": { "th": "ระเบียบว่าด้วยกิจกรรมนักศึกษา พ.ศ. 2560", "en": "Student Activities Regulation, 2017" }, "url": "https://drive.google.com/drive/folders/1J4dZpKkTBtWcnC7QoplHRCUm4qGIRk3Y" },
+    { "title": { "th": "ประกาศแนวปฏิบัติการรับน้อง พ.ศ. 2568", "en": "Freshmen Welcoming Guidelines, 2025" }, "url": "https://drive.google.com/drive/folders/1J4dZpKkTBtWcnC7QoplHRCUm4qGIRk3Y" }
+  ],
+  "studentForms": [
+    { "title": { "th": "แบบฟอร์มสำหรับนักศึกษา (Google Drive)", "en": "Student forms (Google Drive)" }, "url": "https://drive.google.com/drive/folders/1iYHFDjL6qnbP35omHVcfHJ0i7wdl09WM" }
+  ],
+  "staffForms": [
+    { "title": { "th": "แบบฟอร์มสำหรับบุคลากร (Google Drive)", "en": "Staff forms (Google Drive)" }, "url": "https://drive.google.com/drive/folders/1iYHFDjL6qnbP35omHVcfHJ0i7wdl09WM" },
+    { "title": { "th": "คู่มือปฏิบัติงานหลัก", "en": "Work manuals" }, "url": "https://drive.google.com/drive/folders/12Zx_efGO8vtwcQwomEFHMwSL1_yQscdQ" }
+  ],
+  "quality": [
+    { "key": "EdPEx", "title": { "th": "EdPEx", "en": "EdPEx" }, "desc": { "th": "โครงร่างองค์กรและผลการประเมิน", "en": "Organizational profile and assessment" }, "url": "" },
+    { "key": "plan", "title": { "th": "แผนยุทธศาสตร์", "en": "Strategic plan" }, "desc": { "th": "แผนพัฒนาคณะและแผนปฏิบัติการประจำปี", "en": "Faculty development and action plans" }, "url": "" },
+    { "key": "dashboard", "title": { "th": "Dashboard", "en": "Dashboard" }, "desc": { "th": "ตัวชี้วัดหลักย้อนหลัง", "en": "Key performance indicators" }, "url": "" },
+    { "key": "qa", "title": { "th": "ประกันคุณภาพการศึกษา", "en": "Quality assurance" }, "desc": { "th": "รายงานการประเมินตนเอง (SAR) และรายงานประจำปี", "en": "Self-assessment and annual reports" }, "url": "" },
+    { "key": "ita", "title": { "th": "ITA", "en": "ITA" }, "desc": { "th": "การเปิดเผยข้อมูลสาธารณะ", "en": "Integrity and transparency disclosures" }, "url": "" },
+    { "key": "km", "title": { "th": "การจัดการความรู้ (KM)", "en": "Knowledge management" }, "desc": { "th": "คลังความรู้ของคณะ", "en": "Faculty knowledge base" }, "url": "" }
+  ]
+}

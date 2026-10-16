@@ -1,0 +1,29 @@
+---
+import { render } from 'astro:content';
+import Base from '../../../layouts/Base.astro';
+import PageHero from '../../../components/PageHero.astro';
+import { t, path } from '../../../i18n/ui';
+import { formatDate } from '../../../lib/routes';
+import { getNews } from '../../../lib/content';
+
+export async function getStaticPaths() {
+  const out = [];
+  for (const lang of ['th', 'en'] as const) {
+    for (const item of await getNews(lang)) {
+      out.push({ params: { lang: lang === 'en' ? 'en' : undefined, slug: item.slug }, props: { item, lang } });
+    }
+  }
+  return out;
+}
+const { item, lang } = Astro.props;
+const { Content } = await render(item);
+---
+<Base lang={lang} title={item.data.title} description={item.data.excerpt}>
+  <PageHero lang={lang} eyebrow={`${formatDate(item.data.date, lang)}${item.data.category ? ' · ' + item.data.category : ''}`} title={item.data.title}
+    crumbs={[{ label: t(lang, 'nav.news'), href: '/news' }]} />
+  <article class="container-site max-w-3xl py-12 md:py-16">
+    {item.data.cover && <img src={item.data.cover} alt="" class="mb-8 w-full rounded-md" />}
+    <div class="prose-site"><Content /></div>
+    <a href={path(lang, '/news')} class="mt-10 inline-block font-semibold text-maroon">← {t(lang, 'cta.allNews')}</a>
+  </article>
+</Base>

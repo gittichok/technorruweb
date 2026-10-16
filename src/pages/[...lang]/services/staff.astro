@@ -1,0 +1,12 @@
+---
+import ContentPage from '../../../components/ContentPage.astro';
+import DocList from '../../../components/DocList.astro';
+import { t } from '../../../i18n/ui';
+import { langPaths, langFromParam } from '../../../lib/routes';
+import documents from '../../../data/documents.json';
+export function getStaticPaths() { return langPaths(); }
+const lang = langFromParam(Astro.params.lang);
+---
+<ContentPage lang={lang} slug="staff-services" crumbs={[{ label: t(lang, 'nav.services'), href: '/services/students' }]}>
+  <div class="mt-8 max-w-3xl"><DocList lang={lang} items={documents.staffForms} /></div>
+</ContentPage>

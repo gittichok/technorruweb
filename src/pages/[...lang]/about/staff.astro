@@ -1,0 +1,16 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHero from '../../../components/PageHero.astro';
+import PersonCard from '../../../components/PersonCard.astro';
+import { t, pick } from '../../../i18n/ui';
+import people from '../../../data/people.json';
+import { langPaths, langFromParam } from '../../../lib/routes';
+export function getStaticPaths() { return langPaths(); }
+const lang = langFromParam(Astro.params.lang);
+---
+<Base lang={lang} title={t(lang, 'nav.about.staff')}>
+  <PageHero lang={lang} title={t(lang, 'nav.about.staff')} crumbs={[{ label: t(lang, 'nav.about'), href: '/about/history' }, { label: t(lang, 'nav.about.staff') }]} />
+  <div class="container-site grid gap-6 py-12 sm:grid-cols-2 md:py-16 lg:grid-cols-4">
+    {people.staff.map((p) => <PersonCard name={pick(p.name, lang)} position={pick(p.position, lang)} photo={p.photo} />)}
+  </div>
+</Base>

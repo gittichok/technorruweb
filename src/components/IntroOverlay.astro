@@ -1,0 +1,50 @@
+---
+// หน้า Intro สำหรับโอกาสพิเศษ ตั้งค่าใน src/data/intro.json (แก้ได้จาก CMS)
+import intro from '../data/intro.json';
+import { pick, t, type Lang } from '../i18n/ui';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const hasImage = Boolean(intro.imageDesktop);
+---
+{intro.enabled && (
+  <div id="intro-overlay" data-start={intro.start} data-end={intro.end} hidden
+    class:list={['fixed inset-0 z-[100] flex items-center justify-center p-6', intro.mourning ? 'bg-neutral-900' : 'bg-maroon-deep']}
+    role="dialog" aria-modal="true" aria-label={pick(intro.title, lang)}>
+    {hasImage ? (
+      <picture class="absolute inset-0">
+        {intro.imageMobile && <source media="(max-width: 768px)" srcset={intro.imageMobile} />}
+        <img src={intro.imageDesktop} alt={pick(intro.title, lang)} class="h-full w-full object-contain" />
+      </picture>
+    ) : (
+      <div class="max-w-2xl text-center">
+        <div class="mx-auto mb-6 h-px w-24 bg-gold"></div>
+        <h1 class:list={['font-serif text-3xl font-bold md:text-5xl', intro.mourning ? 'text-white' : 'text-gold-light']}>{pick(intro.title, lang)}</h1>
+        <p class="mt-4 text-lg text-parchment">{pick(intro.message, lang)}</p>
+        <div class="mx-auto mt-6 h-px w-24 bg-gold"></div>
+      </div>
+    )}
+    <button type="button" id="intro-skip" class="absolute bottom-8 left-1/2 -translate-x-1/2 rounded-full border border-gold bg-black/30 px-8 py-3 font-semibold text-white hover:bg-gold hover:text-maroon-deep">
+      {t(lang, 'intro.skip')}
+    </button>
+  </div>
+)}
+<script>
+  const el = document.getElementById('intro-overlay');
+  if (el) {
+    const today = new Date().toISOString().slice(0, 10);
+    const inRange = (!el.dataset.start || today >= el.dataset.start) && (!el.dataset.end || today <= el.dataset.end);
+    let seen = false;
+    try { seen = sessionStorage.getItem('intro-seen') === '1'; } catch {}
+    if (inRange && !seen) {
+      el.hidden = false;
+      document.body.style.overflow = 'hidden';
+      const close = () => {
+        el.hidden = true;
+        document.body.style.overflow = '';
+        try { sessionStorage.setItem('intro-seen', '1'); } catch {}
+      };
+      document.getElementById('intro-skip')?.addEventListener('click', close);
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+    }
+  }
+</script>

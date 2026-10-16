@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@theme {
+  --color-maroon: #7b1e2b;
+  --color-maroon-dark: #561420;
+  --color-maroon-deep: #3a0e15;
+  --color-gold: #c8a24c;
+  --color-gold-light: #e8c977;
+  --color-gold-ink: #8a6a1e; /* ทองเข้มสำหรับตัวอักษรบนพื้นขาว (ผ่านเกณฑ์ contrast) */
+  --color-cream: #fbf8f3;
+  --color-sand: #e9dfd2;
+  --color-line: #e4dcd0;
+  --color-ink: #241b1c;
+  --color-muted: #5e5354;
+  --color-parchment: #f3e7d3;
+
+  --font-sans: "IBM Plex Sans Thai", "Noto Sans Thai", sans-serif;
+  --font-serif: "Noto Serif Thai", "Noto Serif", serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white font-sans text-ink leading-relaxed;
+}
+
+/* โหมดไว้อาลัย: admin เปิดจาก CMS (src/data/intro.json -> mourning) */
+html.mourning body {
+  filter: grayscale(1);
+}
+
+.container-site {
+  @apply mx-auto w-full max-w-[1240px] px-6;
+}
+
+.eyebrow {
+  @apply text-sm font-semibold tracking-[0.08em] text-gold-ink;
+}
+
+.section-title {
+  @apply font-serif text-3xl font-bold md:text-[34px];
+}
+
+.prose-site h2 {
+  @apply mt-10 mb-3 font-serif text-2xl font-bold text-maroon;
+}
+.prose-site h3 {
+  @apply mt-6 mb-2 text-xl font-semibold;
+}
+.prose-site p {
+  @apply mb-4;
+}
+.prose-site ul {
+  @apply mb-4 list-disc pl-6;
+}
+.prose-site ol {
+  @apply mb-4 list-decimal pl-6;
+}
+.prose-site a {
+  @apply text-maroon underline;
+}
+
+a:focus-visible,
+button:focus-visible {
+  @apply outline-2 outline-offset-2 outline-gold;
+}

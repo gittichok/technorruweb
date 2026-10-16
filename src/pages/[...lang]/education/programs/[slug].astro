@@ -1,0 +1,56 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import PageHero from '../../../../components/PageHero.astro';
+import { t, path, pick } from '../../../../i18n/ui';
+import { langFromParam, roleLabel } from '../../../../lib/routes';
+import programs from '../../../../data/programs.json';
+import site from '../../../../data/site.json';
+
+export function getStaticPaths() {
+  return programs.programs.flatMap((p) => [
+    { params: { lang: undefined, slug: p.slug }, props: { program: p } },
+    { params: { lang: 'en', slug: p.slug }, props: { program: p } },
+  ]);
+}
+const lang = langFromParam(Astro.params.lang);
+const { program: p } = Astro.props;
+const L = (th: string, en: string) => (lang === 'th' ? th : en);
+const facts = [
+  { label: t(lang, 'label.degree'), value: pick(p.degree, lang) },
+  { label: t(lang, 'label.duration'), value: pick(p.duration, lang) },
+  { label: t(lang, 'label.curriculum'), value: p.curriculum },
+  { label: t(lang, 'label.fee'), value: p.fee ? `${p.fee.toLocaleString()} ${t(lang, 'label.baht')} ${L('ต่อภาคการศึกษา', 'per term')}` : t(lang, 'label.pending') },
+];
+---
+<Base lang={lang} title={pick(p.name, lang)} description={pick(p.summary, lang)}>
+  <PageHero lang={lang} eyebrow={pick(p.degree, lang)} title={pick(p.name, lang)} lead={pick(p.summary, lang)}
+    crumbs={[{ label: t(lang, 'nav.education.programs'), href: '/education/programs' }, { label: pick(p.name, lang) }]} />
+  <div class="container-site grid gap-10 py-12 md:py-16 lg:grid-cols-[1fr_340px]">
+    <div>
+      {p.status === 'pending' && (
+        <div class="mb-8 rounded-md border-l-4 border-gold bg-parchment px-5 py-4 text-sm">{L('หลักสูตรนี้อยู่ระหว่างรออนุมัติจากสภามหาวิทยาลัย', 'This program is awaiting University Council approval.')}</div>
+      )}
+      <h2 class="mb-4 font-serif text-2xl font-bold text-maroon">{t(lang, 'label.lecturers')}</h2>
+      <ul class="grid gap-3 sm:grid-cols-2">
+        {p.lecturers.map((l) => (
+          <li class="rounded-md border border-line bg-white px-4 py-3">
+            <div class="font-semibold">{l.name}</div>
+            <div class="text-sm text-muted">{roleLabel(l.role, lang)}</div>
+          </li>
+        ))}
+      </ul>
+      <h2 class="mb-4 mt-10 font-serif text-2xl font-bold text-maroon">{L('โครงสร้างหลักสูตรและอาชีพ', 'Curriculum and careers')}</h2>
+      <p class="text-muted">{L('รอข้อมูลรายละเอียดหลักสูตร (มคอ.2) โครงสร้างรายวิชา และอาชีพหลังจบการศึกษา', 'Curriculum structure, courses and career paths coming soon.')}</p>
+    </div>
+    <aside class="h-fit rounded-md border-t-4 border-gold bg-cream p-6 lg:sticky lg:top-28">
+      <dl class="space-y-4">
+        {facts.map((f) => (
+          <div><dt class="text-xs font-semibold tracking-wide text-gold-ink">{f.label}</dt><dd class="font-semibold">{f.value}</dd></div>
+        ))}
+      </dl>
+      {p.status === 'open' && <a href={site.applyUrl} target="_blank" rel="noopener" class="mt-6 block rounded bg-maroon px-4 py-3 text-center font-semibold text-white no-underline hover:bg-maroon-dark">{t(lang, 'cta.apply')}</a>}
+      {p.facebook && <a href={p.facebook} target="_blank" rel="noopener" class="mt-3 block rounded border border-maroon px-4 py-3 text-center font-semibold text-maroon no-underline hover:bg-white">{t(lang, 'label.facebook')}</a>}
+      <a href={path(lang, '/education/programs')} class="mt-4 block text-center text-sm text-maroon">← {t(lang, 'nav.education.programs')}</a>
+    </aside>
+  </div>
+</Base>

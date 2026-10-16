@@ -1,0 +1,25 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import { t } from '../../i18n/ui';
+import { langPaths, langFromParam } from '../../lib/routes';
+export function getStaticPaths() { return langPaths(); }
+const lang = langFromParam(Astro.params.lang);
+---
+<Base lang={lang} title={t(lang, 'search.title')}>
+  <PageHero lang={lang} title={t(lang, 'search.title')} crumbs={[{ label: t(lang, 'nav.search') }]} />
+  <div class="container-site max-w-3xl py-12 md:py-16">
+    <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+    <div id="search" data-lang={lang}></div>
+    <script is:inline src="/pagefind/pagefind-ui.js"></script>
+    <script is:inline>
+      window.addEventListener('DOMContentLoaded', () => {
+        if (window.PagefindUI) new PagefindUI({ element: '#search', showSubResults: true, translations: document.documentElement.lang === 'th' ? { placeholder: 'พิมพ์คำที่ต้องการค้นหา', zero_results: 'ไม่พบผลลัพธ์สำหรับ [SEARCH_TERM]' } : {} });
+        else document.getElementById('search').textContent = 'Search index is built with "npm run build".';
+      });
+    </script>
+  </div>
+  <style is:global>
+    :root { --pagefind-ui-primary: #7b1e2b; --pagefind-ui-font: 'IBM Plex Sans Thai', sans-serif; }
+  </style>
+</Base>

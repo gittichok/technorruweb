@@ -1,0 +1,17 @@
+---
+// หน้าที่เนื้อหามาจาก src/content/pages/{lang}/{slug}.md พร้อม slot สำหรับส่วนเสริม
+import Base from '../layouts/Base.astro';
+import PageHero from './PageHero.astro';
+import { getPage } from '../lib/content';
+import type { Lang } from '../i18n/ui';
+interface Props { lang: Lang; slug: string; crumbs?: { label: string; href?: string }[]; eyebrow?: string }
+const { lang, slug, crumbs = [], eyebrow } = Astro.props;
+const { entry, Content } = await getPage(lang, slug);
+---
+<Base lang={lang} title={entry.data.title} description={entry.data.description}>
+  <PageHero lang={lang} title={entry.data.title} lead={entry.data.description} eyebrow={eyebrow} crumbs={[...crumbs, { label: entry.data.title }]} />
+  <div class="container-site py-12 md:py-16">
+    <div class="prose-site max-w-3xl"><Content /></div>
+    <slot />
+  </div>
+</Base>

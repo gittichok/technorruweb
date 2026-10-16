@@ -1,0 +1,14 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHero from '../../../components/PageHero.astro';
+import DocList from '../../../components/DocList.astro';
+import { t } from '../../../i18n/ui';
+import { langPaths, langFromParam } from '../../../lib/routes';
+import documents from '../../../data/documents.json';
+export function getStaticPaths() { return langPaths(); }
+const lang = langFromParam(Astro.params.lang);
+---
+<Base lang={lang} title={t(lang, 'nav.education.handbook')}>
+  <PageHero lang={lang} title={t(lang, 'nav.education.handbook')} crumbs={[{ label: t(lang, 'nav.education'), href: '/education/programs' }, { label: t(lang, 'nav.education.handbook') }]} />
+  <div class="container-site max-w-3xl py-12 md:py-16"><DocList lang={lang} items={documents.handbook} /></div>
+</Base>

@@ -1,0 +1,51 @@
+---
+import { t, path, pick, type Lang } from '../i18n/ui';
+import site from '../data/site.json';
+import Emblem from './Emblem.astro';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const year = new Date().getFullYear() + (lang === 'th' ? 543 : 0);
+---
+<footer class="bg-maroon-deep text-parchment">
+  <div class="container-site grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
+    <div>
+      <div class="mb-4 flex items-center gap-3">
+        <Emblem size={44} />
+        <div class="leading-tight">
+          <div class="font-serif text-lg font-bold text-white">{t(lang, 'faculty.name')}</div>
+          <div class="text-sm">{t(lang, 'univ.name')}</div>
+        </div>
+      </div>
+      <p class="text-sm">{pick(site.address, lang)}</p>
+      <p class="mt-2 text-sm">{t(lang, 'label.tel')} <a href={`tel:${site.phone.replace(/-/g, '')}`} class="hover:text-gold-light">{site.phone}</a> · <a href={`mailto:${site.email}`} class="hover:text-gold-light">{site.email}</a></p>
+      <p class="mt-2 text-sm">{t(lang, 'footer.hours')} {pick(site.hours, lang)}</p>
+    </div>
+    <div>
+      <h2 class="mb-3 font-semibold text-gold-light">{t(lang, 'footer.links')}</h2>
+      <ul class="space-y-2 text-sm">
+        {site.quickLinks.map((l) => <li><a href={l.url} target="_blank" rel="noopener" class="hover:text-gold-light">{pick(l.label, lang)}</a></li>)}
+        <li><a href={path(lang, '/services/forms')} class="hover:text-gold-light">{t(lang, 'nav.services.forms')}</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="mb-3 font-semibold text-gold-light">{t(lang, 'footer.policies')}</h2>
+      <ul class="space-y-2 text-sm">
+        <li><a href={path(lang, '/privacy')} class="hover:text-gold-light">{t(lang, 'footer.privacy')}</a></li>
+        <li><a href={path(lang, '/quality')} class="hover:text-gold-light">{t(lang, 'nav.quality')}</a></li>
+        <li><a href={site.deanHotlineUrl} target="_blank" rel="noopener" class="hover:text-gold-light">{t(lang, 'nav.dean')}</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="mb-3 font-semibold text-gold-light">{t(lang, 'footer.follow')}</h2>
+      <ul class="space-y-2 text-sm">
+        <li><a href={site.social.facebook} target="_blank" rel="noopener" class="hover:text-gold-light">Facebook</a></li>
+        <li><a href={site.social.line} target="_blank" rel="noopener" class="hover:text-gold-light">LINE {site.social.lineId}</a></li>
+        <li><a href={site.university} target="_blank" rel="noopener" class="hover:text-gold-light">{t(lang, 'univ.name')}</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-white/10 py-4 text-center text-xs text-parchment/80">
+    © {year} {t(lang, 'faculty.name')} {t(lang, 'univ.name')}
+  </div>
+</footer>

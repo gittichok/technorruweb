@@ -1,0 +1,49 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import IntroOverlay from '../components/IntroOverlay.astro';
+import intro from '../data/intro.json';
+import { t, type Lang } from '../i18n/ui';
+import { switchPath } from '../lib/routes';
+
+interface Props { lang: Lang; title?: string; description?: string }
+const { lang, title, description } = Astro.props;
+const siteName = t(lang, 'faculty.name') + ' ' + t(lang, 'univ.name');
+const fullTitle = title ? `${title} | ${t(lang, 'faculty.name')}` : siteName;
+const desc = description || (lang === 'th'
+  ? 'คณะเทคโนโลยีอุตสาหกรรม มหาวิทยาลัยราชภัฏราชนครินทร์ ฉะเชิงเทรา ผลิตนักเทคโนโลยีและวิศวกรนักปฏิบัติเพื่ออุตสาหกรรมภาคตะวันออก'
+  : 'Faculty of Industrial Technology, Rajabhat Rajanagarindra University, Chachoengsao: hands-on engineers and technologists for Eastern Thailand.');
+const site = Astro.site ?? new URL('https://techno.rru.ac.th');
+const thUrl = new URL(switchPath(Astro.url.pathname, 'th'), site);
+const enUrl = new URL(switchPath(Astro.url.pathname, 'en'), site);
+---
+<!doctype html>
+<html lang={lang} class:list={{ mourning: intro.mourning }}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={desc} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href={new URL(Astro.url.pathname, site)} />
+    <link rel="alternate" hreflang="th" href={thUrl} />
+    <link rel="alternate" hreflang="en" href={enUrl} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={desc} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={lang === 'th' ? 'th_TH' : 'en_US'} />
+    <meta name="theme-color" content="#7B1E2B" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Noto+Serif+Thai:wght@500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body class="min-h-screen">
+    <IntroOverlay lang={lang} />
+    <Header lang={lang} />
+    <main id="main" data-pagefind-body>
+      <slot />
+    </main>
+    <Footer lang={lang} />
+  </body>
+</html>

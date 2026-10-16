@@ -1,0 +1,27 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import { t } from '../../i18n/ui';
+import { langPaths, langFromParam } from '../../lib/routes';
+import site from '../../data/site.json';
+export function getStaticPaths() { return langPaths(); }
+const lang = langFromParam(Astro.params.lang);
+---
+<Base lang={lang} title={t(lang, 'footer.privacy')}>
+  <PageHero lang={lang} title={t(lang, 'footer.privacy')} crumbs={[{ label: t(lang, 'footer.privacy') }]} />
+  <div class="container-site prose-site max-w-3xl py-12 md:py-16">
+    {lang === 'th' ? (
+      <>
+        <p>เว็บไซต์นี้เป็นเว็บไซต์แบบคงที่ (static) ไม่มีการเก็บข้อมูลส่วนบุคคลของผู้เข้าชมโดยตรง และไม่ใช้คุกกี้ติดตามตัวบุคคล</p>
+        <p>แบบฟอร์มที่เชื่อมไปยังบริการภายนอก เช่น Google Forms หรือระบบของมหาวิทยาลัย จะอยู่ภายใต้นโยบายของบริการนั้น และนโยบายคุ้มครองข้อมูลส่วนบุคคลของมหาวิทยาลัยราชภัฏราชนครินทร์</p>
+        <p>สอบถามเพิ่มเติม: {site.email}</p>
+      </>
+    ) : (
+      <>
+        <p>This is a static website. It does not collect visitors' personal data directly and uses no tracking cookies.</p>
+        <p>Forms linked to external services, such as Google Forms or university systems, are covered by those services' policies and by the Rajabhat Rajanagarindra University personal data protection policy.</p>
+        <p>Questions: {site.email}</p>
+      </>
+    )}
+  </div>
+</Base>

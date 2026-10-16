@@ -1,0 +1,10 @@
+{
+  "enabled": false,
+  "start": "2026-12-01",
+  "end": "2026-12-07",
+  "title": { "th": "ร่วมเฉลิมฉลองโอกาสพิเศษ", "en": "Celebrating a special occasion" },
+  "message": { "th": "คณะเทคโนโลยีอุตสาหกรรม มหาวิทยาลัยราชภัฏราชนครินทร์", "en": "Faculty of Industrial Technology, Rajabhat Rajanagarindra University" },
+  "imageDesktop": "",
+  "imageMobile": "",
+  "mourning": false
+}

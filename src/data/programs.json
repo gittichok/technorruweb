@@ -1,0 +1,158 @@
+{
+  "programs": [
+    {
+      "slug": "automated-manufacturing-engineering",
+      "group": "eng",
+      "degree": { "th": "วิศวกรรมศาสตรบัณฑิต (วศ.บ.)", "en": "Bachelor of Engineering (B.Eng.)" },
+      "name": { "th": "วิศวกรรมการผลิตอัตโนมัติ", "en": "Automated Manufacturing Engineering" },
+      "summary": {
+        "th": "ควบคุมหุ่นยนต์และระบบอัตโนมัติในสายการผลิต ก้าวทันโรงงานอัจฉริยะในพื้นที่ EEC",
+        "en": "Robotics and automation for production lines in Thailand's Eastern Economic Corridor."
+      },
+      "duration": { "th": "4 ปี", "en": "4 years" },
+      "curriculum": "หลักสูตรปรับปรุง พ.ศ. 2569",
+      "fee": 15000,
+      "status": "open",
+      "lecturers": [
+        { "name": "ผศ.ภูมิพัฒน์ ก๋าคำ", "role": "ประธานสาขาวิชา" },
+        { "name": "อ.ลัคนา เพิ่มพูล", "role": "เลขานุการ" },
+        { "name": "ผศ.ดร.ชัชวาล มงคล", "role": "อาจารย์ผู้รับผิดชอบหลักสูตร" },
+        { "name": "ดร.วีระพล ทับทิมดี", "role": "อาจารย์ผู้รับผิดชอบหลักสูตร" },
+        { "name": "อ.เสกสรรค์ สุชัยพร", "role": "อาจารย์ผู้รับผิดชอบหลักสูตร" }
+      ],
+      "facebook": "https://www.facebook.com/AMEatRRU"
+    },
+    {
+      "slug": "electrical-and-energy-engineering",
+      "group": "eng",
+      "degree": { "th": "วิศวกรรมศาสตรบัณฑิต (วศ.บ.)", "en": "Bachelor of Engineering (B.Eng.)" },
+      "name": { "th": "วิศวกรรมไฟฟ้าและพลังงาน", "en": "Electrical and Energy Engineering" },
+      "summary": {
+        "th": "ออกแบบระบบไฟฟ้าและพลังงานทดแทน พร้อมต่อยอดสู่ธุรกิจรับเหมาระบบไฟฟ้า",
+        "en": "Electrical power systems and renewable energy, with a path to your own contracting business."
+      },
+      "duration": { "th": "4 ปี", "en": "4 years" },
+      "curriculum": "หลักสูตรปรับปรุง พ.ศ. 2569",
+      "fee": 12000,
+      "status": "open",
+      "lecturers": [
+        { "name": "ผศ.ดร.ปัญญา เข็มมุข", "role": "ประธานสาขาวิชา" },
+        { "name": "ดร.ประยุทธ อินแบน", "role": "เลขานุการ" },
+        { "name": "ผศ.ดร.สุรกิจ ทองสุก", "role": "อาจารย์ผู้รับผิดชอบหลักสูตร" },
+        { "name": "อ.สุรพงษ์ แก่นมณี", "role": "อาจารย์ผู้รับผิดชอบหลักสูตร" },
+        { "name": "รศ.ดร.ราชู พันธ์ฉลาด", "role": "อาจารย์ผู้รับผิดชอบหลักสูตร" }
+      ],
+      "facebook": ""
+    },
+    {
+      "slug": "modern-automotive-engineering",
+      "group": "eng",
+      "degree": { "th": "วิศวกรรมศาสตรบัณฑิต (วศ.บ.)", "en": "Bachelor of Engineering (B.Eng.)" },
+      "name": { "th": "วิศวกรรมยานยนต์สมัยใหม่", "en": "Modern Automotive Engineering" },
+      "summary": {
+        "th": "เรียนรู้ยานยนต์สมัยใหม่และยานยนต์ไฟฟ้า ตอบโจทย์อุตสาหกรรมยานยนต์ภาคตะวันออก",
+        "en": "Modern and electric vehicles for the automotive industry of Eastern Thailand."
+      },
+      "duration": { "th": "4 ปี", "en": "4 years" },
+      "curriculum": "หลักสูตรปรับปรุง พ.ศ. 2569",
+      "fee": 12000,
+      "status": "open",
+      "lecturers": [
+        { "name": "ผศ.ชัชวาล นิมโรธรรม", "role": "ประธานสาขาวิชา" },
+        { "name": "อ.ดร.กาหลง บัวนาค", "role": "เลขานุการ" },
+        { "name": "อ.ประพฤทธิ์ สุพร", "role": "อาจารย์ผู้รับผิดชอบหลักสูตร" },
+        { "name": "ผศ.ดร.นรินทร์ กุลนภาดล", "role": "อาจารย์ผู้รับผิดชอบหลักสูตร" },
+        { "name": "อ.พิมพ์นิภา สุเมธีสิริสกุล", "role": "อาจารย์ผู้รับผิดชอบหลักสูตร" }
+      ],
+      "facebook": "https://www.facebook.com/RRUAutomotiveEng"
+    },
+    {
+      "slug": "industrial-management-engineering",
+      "group": "eng",
+      "degree": { "th": "วิศวกรรมศาสตรบัณฑิต (วศ.บ.)", "en": "Bachelor of Engineering (B.Eng.)" },
+      "name": { "th": "วิศวกรรมการจัดการอุตสาหกรรม", "en": "Industrial Management Engineering" },
+      "summary": {
+        "th": "บริหารการผลิต คุณภาพ และความปลอดภัยในโรงงาน ด้วยแนวคิดวิศวกรรมและข้อมูล",
+        "en": "Production, quality and safety management in factories, driven by engineering and data."
+      },
+      "duration": { "th": "4 ปี", "en": "4 years" },
+      "curriculum": "หลักสูตรปรับปรุง พ.ศ. 2569",
+      "fee": 15000,
+      "status": "open",
+      "lecturers": [
+        { "name": "ผศ.ดร.ณัฐภัทร กาญจนเรืองรอง", "role": "ประธานสาขาวิชา" },
+        { "name": "ผศ.ดร.ศรินยา ประทีปชนะชัย", "role": "เลขานุการ" },
+        { "name": "ดร.จักรพันธ์ ปิ่นทอง", "role": "อาจารย์ผู้รับผิดชอบหลักสูตร" },
+        { "name": "ดร.เษกสรร สิงห์ธนู", "role": "อาจารย์ผู้รับผิดชอบหลักสูตร" }
+      ],
+      "facebook": "https://www.facebook.com/IMEatRRU"
+    },
+    {
+      "slug": "logistics-and-process-engineering",
+      "group": "eng",
+      "degree": { "th": "วิศวกรรมศาสตรบัณฑิต (วศ.บ.)", "en": "Bachelor of Engineering (B.Eng.)" },
+      "name": { "th": "วิศวกรรมโลจิสติกส์และกระบวนการ", "en": "Logistics and Process Engineering" },
+      "summary": {
+        "th": "วางแผนระบบขนส่ง คลังสินค้า และกระบวนการผลิต ให้มีประสิทธิภาพและคุ้มค่า",
+        "en": "Planning transport, warehousing and production processes for efficiency."
+      },
+      "duration": { "th": "4 ปี", "en": "4 years" },
+      "curriculum": "หลักสูตรปรับปรุง พ.ศ. 2567",
+      "fee": 15000,
+      "status": "open",
+      "lecturers": [
+        { "name": "ดร.ปริวรรต นาสวาสดิ์", "role": "ประธานสาขาวิชา" },
+        { "name": "อ.จตุพล พิสิฏฐ์ศักดิ์", "role": "เลขานุการ" },
+        { "name": "ผศ.ธนธัช มั่นมงคล", "role": "อาจารย์ผู้รับผิดชอบหลักสูตร" },
+        { "name": "ผศ.ดร.ประเวช เชื้อวงษ์", "role": "อาจารย์ผู้รับผิดชอบหลักสูตร" },
+        { "name": "ผศ.ยุทธณรงค์ จงจันทร์", "role": "อาจารย์ผู้รับผิดชอบหลักสูตร" },
+        { "name": "อ.ณัฐพงศ์ สุวรรณกุล", "role": "อาจารย์ประจำหลักสูตร" }
+      ],
+      "facebook": "https://www.facebook.com/logistics.rru"
+    },
+    {
+      "slug": "smart-industrial-technology",
+      "group": "tech",
+      "degree": { "th": "เทคโนโลยีบัณฑิต (ทล.บ.) ต่อเนื่อง", "en": "Bachelor of Technology (continuing)" },
+      "name": { "th": "เทคโนโลยีอุตสาหกรรมอัจฉริยะ", "en": "Smart Industrial Technology" },
+      "summary": {
+        "th": "สำหรับผู้จบสายช่างที่อยากต่อยอดสู่โรงงานอัจฉริยะ เรียนร่วมกับอาจารย์จากสถานประกอบการ",
+        "en": "For vocational graduates moving into smart factories, co-taught by industry lecturers."
+      },
+      "duration": { "th": "2 ปี (ต่อเนื่อง)", "en": "2 years (continuing)" },
+      "curriculum": "หลักสูตรใหม่ พ.ศ. 2570",
+      "fee": 10000,
+      "status": "open",
+      "lecturers": [
+        { "name": "ผศ.กิ่งกาญจน์ กิตติสุนทโรภาศ", "role": "ประธานสาขาวิชา" },
+        { "name": "อ.เมธี พรมศิลา", "role": "เลขานุการ" },
+        { "name": "ดร.สุทธิดา การะเวก", "role": "อาจารย์ผู้รับผิดชอบหลักสูตร" },
+        { "name": "อ.เพชณรง ฉายจรุง", "role": "อาจารย์ผู้รับผิดชอบหลักสูตร (จากสถานประกอบการ)" },
+        { "name": "อ.สมโภชน์ โลบุญเลิศ", "role": "อาจารย์ผู้รับผิดชอบหลักสูตร (จากสถานประกอบการ)" }
+      ],
+      "facebook": "https://www.facebook.com/sit.rru"
+    },
+    {
+      "slug": "creative-design-innovation",
+      "group": "design",
+      "degree": { "th": "วิทยาศาสตรบัณฑิต (วท.บ.)", "en": "Bachelor of Science (B.Sc.)" },
+      "name": { "th": "นวัตกรรมการออกแบบสร้างสรรค์", "en": "Creative Design Innovation" },
+      "summary": {
+        "th": "เปลี่ยนไอเดียเป็นผลิตภัณฑ์ และสร้างแบรนด์ผลิตภัณฑ์ชุมชน",
+        "en": "Turn ideas into products and build community product brands."
+      },
+      "duration": { "th": "4 ปี", "en": "4 years" },
+      "curriculum": "หลักสูตรใหม่ พ.ศ. 2570 (รออนุมัติจากสภามหาวิทยาลัย)",
+      "fee": 0,
+      "status": "pending",
+      "lecturers": [
+        { "name": "ดร.สราวุธ อิศรานุวัฒน์", "role": "อาจารย์ประจำหลักสูตร" },
+        { "name": "อ.จริยา แผลงนอก", "role": "อาจารย์ประจำหลักสูตร" },
+        { "name": "ผศ.อัญชลี ชนะค้า", "role": "อาจารย์ประจำหลักสูตร" },
+        { "name": "อ.อภิวัฒน์ วงศ์ณรัตน์", "role": "อาจารย์ประจำหลักสูตร" },
+        { "name": "ผศ.วิชาญ ตอรบรัมย์", "role": "อาจารย์ประจำหลักสูตร" }
+      ],
+      "facebook": ""
+    }
+  ]
+}

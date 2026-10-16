@@ -1,0 +1,18 @@
+---
+import { t, pick, type Lang } from '../i18n/ui';
+interface Props { lang: Lang; items: { title: { th: string; en: string }; url: string }[] }
+const { lang, items } = Astro.props;
+---
+<ul class="divide-y divide-line rounded-md border border-line bg-white">
+  {items.map((d) => (
+    <li class="flex items-center justify-between gap-4 px-5 py-4">
+      <span class="flex items-center gap-3">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8A6A1E" stroke-width="1.8" aria-hidden="true"><path d="M14 3H6a2 2 0 00-2 2v14a2 2 0 002 2h12a2 2 0 002-2V9z" /><path d="M14 3v6h6" /></svg>
+        {pick(d.title, lang)}
+      </span>
+      {d.url
+        ? <a href={d.url} target="_blank" rel="noopener" class="shrink-0 rounded border border-maroon px-3 py-1 text-sm font-semibold text-maroon no-underline hover:bg-maroon hover:text-white">{t(lang, 'label.download')}</a>
+        : <span class="shrink-0 text-sm text-muted">{t(lang, 'label.pending')}</span>}
+    </li>
+  ))}
+</ul>

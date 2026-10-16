@@ -1,0 +1,17 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHero from '../../../components/PageHero.astro';
+import NewsCard from '../../../components/NewsCard.astro';
+import { t } from '../../../i18n/ui';
+import { langPaths, langFromParam } from '../../../lib/routes';
+import { getNews } from '../../../lib/content';
+export function getStaticPaths() { return langPaths(); }
+const lang = langFromParam(Astro.params.lang);
+const news = await getNews(lang);
+---
+<Base lang={lang} title={t(lang, 'nav.news')}>
+  <PageHero lang={lang} title={t(lang, 'nav.news')} crumbs={[{ label: t(lang, 'nav.news') }]} />
+  <div class="container-site grid gap-6 py-12 sm:grid-cols-2 md:py-16 lg:grid-cols-3">
+    {news.map((n) => <NewsCard lang={lang} item={n} />)}
+  </div>
+</Base>

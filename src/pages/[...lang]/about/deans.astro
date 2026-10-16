@@ -1,0 +1,25 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHero from '../../../components/PageHero.astro';
+import { t, pick } from '../../../i18n/ui';
+import people from '../../../data/people.json';
+import { langPaths, langFromParam } from '../../../lib/routes';
+export function getStaticPaths() { return langPaths(); }
+const lang = langFromParam(Astro.params.lang);
+---
+<Base lang={lang} title={t(lang, 'nav.about.deans')}>
+  <PageHero lang={lang} title={t(lang, 'nav.about.deans')} crumbs={[{ label: t(lang, 'nav.about'), href: '/about/history' }, { label: t(lang, 'nav.about.deans') }]} />
+  <div class="container-site py-12 md:py-16">
+    <ol class="relative mx-auto max-w-3xl border-l-2 border-gold pl-8">
+      {people.deans.map((d, i) => (
+        <li class="relative mb-8 last:mb-0">
+          <span class="absolute -left-[45px] flex h-8 w-8 items-center justify-center rounded-full bg-maroon text-sm font-bold text-gold-light">{i + 1}</span>
+          <div class="rounded-md border border-line bg-white p-5">
+            <div class="font-serif text-lg font-bold text-maroon">{pick(d.name, lang)}</div>
+            <div class="mt-1 text-sm text-muted">{pick(d.term, lang)}</div>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</Base>

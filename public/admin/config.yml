@@ -1,0 +1,174 @@
+# Sveltia CMS: ผู้ดูแลเข้าที่ https://<โดเมน>/admin/ แล้วล็อกอินด้วย GitHub (หรือ Personal Access Token)
+backend:
+  name: github
+  repo: gittichok/technorruweb
+  branch: main
+  commit_messages:
+    create: "เพิ่ม {{collection}} “{{slug}}”"
+    update: "แก้ไข {{collection}} “{{slug}}”"
+    delete: "ลบ {{collection}} “{{slug}}”"
+
+media_folder: public/images/uploads
+public_folder: /images/uploads
+site_url: https://techno.rru.ac.th
+locale: th
+
+i18n:
+  structure: multiple_folders
+  locales: [th, en]
+  default_locale: th
+
+collections:
+  - name: news
+    label: ข่าวและกิจกรรม
+    label_singular: ข่าว
+    folder: src/content/news
+    create: true
+    i18n: true
+    slug: "{{year}}-{{month}}-{{day}}-{{fields._slug}}"
+    sortable_fields: [date, title]
+    summary: "{{date}} · {{title}}"
+    fields:
+      - { name: title, label: หัวข้อข่าว, widget: string, i18n: true }
+      - { name: date, label: วันที่, widget: datetime, time_format: false, format: YYYY-MM-DD, i18n: duplicate }
+      - { name: category, label: หมวดหมู่, widget: string, required: false, i18n: true, hint: "เช่น บริการวิชาการ, ความร่วมมือ, พัฒนาบุคลากร" }
+      - { name: excerpt, label: สรุปสั้น, widget: text, required: false, i18n: true }
+      - { name: cover, label: ภาพหน้าปก, widget: image, required: false, i18n: duplicate }
+      - { name: draft, label: ฉบับร่าง (ยังไม่เผยแพร่), widget: boolean, default: false, i18n: duplicate }
+      - { name: body, label: เนื้อหา, widget: markdown, i18n: true }
+
+  - name: pages
+    label: หน้าเนื้อหา
+    folder: src/content/pages
+    create: false
+    delete: false
+    i18n: true
+    fields:
+      - { name: title, label: ชื่อหน้า, widget: string, i18n: true }
+      - { name: description, label: คำอธิบายใต้หัวเรื่อง, widget: string, required: false, i18n: true }
+      - { name: body, label: เนื้อหา, widget: markdown, i18n: true }
+
+  - name: data
+    label: ข้อมูลคณะ
+    files:
+      - name: intro
+        label: หน้า Intro / โหมดไว้อาลัย
+        file: src/data/intro.json
+        fields:
+          - { name: enabled, label: เปิดใช้หน้า Intro, widget: boolean }
+          - { name: start, label: วันเริ่มแสดง, widget: datetime, time_format: false, format: YYYY-MM-DD }
+          - { name: end, label: วันสิ้นสุด, widget: datetime, time_format: false, format: YYYY-MM-DD }
+          - name: title
+            label: หัวข้อ
+            widget: object
+            fields: [{ name: th, label: ไทย, widget: string }, { name: en, label: English, widget: string }]
+          - name: message
+            label: ข้อความ
+            widget: object
+            fields: [{ name: th, label: ไทย, widget: string }, { name: en, label: English, widget: string }]
+          - { name: imageDesktop, label: ภาพสำหรับจอคอมพิวเตอร์ (1920x1080), widget: image, required: false }
+          - { name: imageMobile, label: ภาพสำหรับมือถือ (1080x1920), widget: image, required: false }
+          - { name: mourning, label: โหมดไว้อาลัย (เว็บเป็นสีเทาทั้งเว็บ), widget: boolean }
+
+      - name: programs
+        label: หลักสูตร
+        file: src/data/programs.json
+        fields:
+          - name: programs
+            label: หลักสูตร
+            widget: list
+            summary: "{{fields.name.th}}"
+            fields:
+              - { name: slug, label: รหัสลิงก์ (ภาษาอังกฤษ ห้ามเว้นวรรค), widget: string }
+              - { name: group, label: กลุ่ม, widget: select, options: [{ label: วิศวกรรม, value: eng }, { label: เทคโนโลยี, value: tech }, { label: ออกแบบ, value: design }] }
+              - { name: degree, label: ปริญญา, widget: object, fields: [{ name: th, label: ไทย, widget: string }, { name: en, label: English, widget: string }] }
+              - { name: name, label: ชื่อหลักสูตร, widget: object, fields: [{ name: th, label: ไทย, widget: string }, { name: en, label: English, widget: string }] }
+              - { name: summary, label: คำอธิบายสั้น, widget: object, fields: [{ name: th, label: ไทย, widget: text }, { name: en, label: English, widget: text }] }
+              - { name: duration, label: ระยะเวลา, widget: object, fields: [{ name: th, label: ไทย, widget: string }, { name: en, label: English, widget: string }] }
+              - { name: curriculum, label: ปีหลักสูตร, widget: string }
+              - { name: fee, label: ค่าเทอม (บาท/ภาค), widget: number, value_type: int }
+              - { name: status, label: สถานะ, widget: select, options: [{ label: เปิดรับ, value: open }, { label: รออนุมัติ, value: pending }] }
+              - name: lecturers
+                label: อาจารย์
+                widget: list
+                summary: "{{fields.name}}"
+                fields: [{ name: name, label: ชื่อ, widget: string }, { name: role, label: ตำแหน่ง, widget: string }]
+              - { name: facebook, label: ลิงก์ Facebook หลักสูตร, widget: string, required: false }
+
+      - name: people
+        label: ผู้บริหารและบุคลากร
+        file: src/data/people.json
+        fields:
+          - name: executives
+            label: ผู้บริหาร (คนแรกคือคณบดี)
+            widget: list
+            summary: "{{fields.name.th}}"
+            fields: &person
+              - { name: name, label: ชื่อ, widget: object, fields: [{ name: th, label: ไทย, widget: string }, { name: en, label: English, widget: string }] }
+              - { name: position, label: ตำแหน่ง, widget: object, fields: [{ name: th, label: ไทย, widget: string }, { name: en, label: English, widget: string }] }
+              - { name: photo, label: รูปถ่าย, widget: image, required: false }
+          - name: deans
+            label: ทำเนียบคณบดี
+            widget: list
+            summary: "{{fields.name.th}}"
+            fields:
+              - { name: name, label: ชื่อ, widget: object, fields: [{ name: th, label: ไทย, widget: string }, { name: en, label: English, widget: string }] }
+              - { name: term, label: วาระ, widget: object, fields: [{ name: th, label: ไทย, widget: string }, { name: en, label: English, widget: string }] }
+          - name: staff
+            label: บุคลากรสายสนับสนุน
+            widget: list
+            summary: "{{fields.name.th}}"
+            fields: *person
+
+      - name: documents
+        label: เอกสารและแบบฟอร์ม
+        file: src/data/documents.json
+        fields:
+          - &doclist
+            name: handbook
+            label: คู่มือนักศึกษา
+            widget: list
+            summary: "{{fields.title.th}}"
+            fields:
+              - { name: title, label: ชื่อเอกสาร, widget: object, fields: [{ name: th, label: ไทย, widget: string }, { name: en, label: English, widget: string }] }
+              - { name: url, label: ลิงก์ (Google Drive ต้องเปิดสิทธิ์ให้ทุกคนที่มีลิงก์), widget: string, required: false }
+          - { <<: *doclist, name: regulations, label: ระเบียบนักศึกษา }
+          - { <<: *doclist, name: studentForms, label: แบบฟอร์มนักศึกษา }
+          - { <<: *doclist, name: staffForms, label: แบบฟอร์มบุคลากร }
+          - name: quality
+            label: คุณภาพและธรรมาภิบาล
+            widget: list
+            summary: "{{fields.title.th}}"
+            fields:
+              - { name: key, label: รหัส, widget: string }
+              - { name: title, label: หัวข้อ, widget: object, fields: [{ name: th, label: ไทย, widget: string }, { name: en, label: English, widget: string }] }
+              - { name: desc, label: คำอธิบาย, widget: object, fields: [{ name: th, label: ไทย, widget: string }, { name: en, label: English, widget: string }] }
+              - { name: url, label: ลิงก์, widget: string, required: false }
+
+      - name: site
+        label: ข้อมูลติดต่อและลิงก์
+        file: src/data/site.json
+        fields:
+          - { name: address, label: ที่อยู่, widget: object, fields: [{ name: th, label: ไทย, widget: text }, { name: en, label: English, widget: text }] }
+          - { name: campus, label: ที่ตั้งห้องปฏิบัติการ, widget: object, fields: [{ name: th, label: ไทย, widget: string }, { name: en, label: English, widget: string }] }
+          - { name: phone, label: โทรศัพท์หลัก, widget: string }
+          - { name: phoneAlt, label: โทรศัพท์สำรอง, widget: string }
+          - { name: email, label: อีเมล, widget: string }
+          - { name: hours, label: เวลาทำการ, widget: object, fields: [{ name: th, label: ไทย, widget: string }, { name: en, label: English, widget: string }] }
+          - { name: mapEmbed, label: ลิงก์แผนที่ (embed), widget: string }
+          - { name: applyUrl, label: ลิงก์สมัครเรียน, widget: string }
+          - { name: deanHotlineUrl, label: ลิงก์สายตรงคณบดี, widget: string }
+          - { name: social, label: โซเชียล, widget: object, fields: [{ name: facebook, label: Facebook, widget: string }, { name: line, label: LINE (ลิงก์), widget: string }, { name: lineId, label: LINE ID, widget: string }, { name: youtube, label: YouTube, widget: string, required: false }] }
+          - { name: university, label: เว็บมหาวิทยาลัย, widget: string }
+          - name: stats
+            label: ตัวเลขหน้าแรก
+            widget: list
+            fields: [{ name: value, label: ตัวเลข, widget: string }, { name: label, label: คำอธิบาย, widget: object, fields: [{ name: th, label: ไทย, widget: string }, { name: en, label: English, widget: string }] }]
+          - name: quickLinks
+            label: ลิงก์ด่วน (ส่วนท้าย)
+            widget: list
+            fields: [{ name: label, label: ชื่อ, widget: object, fields: [{ name: th, label: ไทย, widget: string }, { name: en, label: English, widget: string }] }, { name: url, label: ลิงก์, widget: string }]
+          - name: infoSystems
+            label: ระบบสารสนเทศ
+            widget: list
+            fields: [{ name: name, label: ชื่อระบบ, widget: object, fields: [{ name: th, label: ไทย, widget: string }, { name: en, label: English, widget: string }] }, { name: desc, label: คำอธิบาย, widget: object, fields: [{ name: th, label: ไทย, widget: string }, { name: en, label: English, widget: string }] }, { name: url, label: ลิงก์, widget: string }]

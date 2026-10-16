@@ -1,0 +1,20 @@
+---
+import ContentPage from '../../components/ContentPage.astro';
+import { pick } from '../../i18n/ui';
+import { langPaths, langFromParam } from '../../lib/routes';
+import documents from '../../data/documents.json';
+export function getStaticPaths() { return langPaths(); }
+const lang = langFromParam(Astro.params.lang);
+---
+<ContentPage lang={lang} slug="quality">
+  <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    {documents.quality.map((q) => (
+      <div class="rounded-md border border-line bg-white p-5">
+        <div class="font-semibold text-maroon">{pick(q.title, lang)}</div>
+        <div class="text-sm text-muted">{pick(q.desc, lang)}</div>
+        {q.url ? <a href={q.url} target="_blank" rel="noopener" class="mt-3 inline-block text-sm font-semibold text-maroon">{lang === 'th' ? 'เปิดดู' : 'Open'} ↗</a>
+               : <div class="mt-3 text-sm text-muted">{lang === 'th' ? 'รอข้อมูล' : 'Coming soon'}</div>}
+      </div>
+    ))}
+  </div>
+</ContentPage>

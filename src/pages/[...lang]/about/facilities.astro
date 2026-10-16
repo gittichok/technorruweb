@@ -1,0 +1,8 @@
+---
+import ContentPage from '../../../components/ContentPage.astro';
+import { t } from '../../../i18n/ui';
+import { langPaths, langFromParam } from '../../../lib/routes';
+export function getStaticPaths() { return langPaths(); }
+const lang = langFromParam(Astro.params.lang);
+---
+<ContentPage lang={lang} slug="facilities" crumbs={[{ label: t(lang, 'nav.about'), href: '/about/history' }]} />

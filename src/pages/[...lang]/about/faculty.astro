@@ -1,0 +1,31 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHero from '../../../components/PageHero.astro';
+import { t, path, pick } from '../../../i18n/ui';
+import { roleLabel } from '../../../lib/routes';
+import programs from '../../../data/programs.json';
+import { langPaths, langFromParam } from '../../../lib/routes';
+export function getStaticPaths() { return langPaths(); }
+const lang = langFromParam(Astro.params.lang);
+---
+<Base lang={lang} title={t(lang, 'nav.about.faculty')}>
+  <PageHero lang={lang} title={t(lang, 'nav.about.faculty')} crumbs={[{ label: t(lang, 'nav.about'), href: '/about/history' }, { label: t(lang, 'nav.about.faculty') }]} />
+  <div class="container-site space-y-10 py-12 md:py-16">
+    {programs.programs.map((p) => (
+      <section>
+        <div class="mb-4 flex flex-wrap items-baseline justify-between gap-2 border-b-2 border-gold pb-2">
+          <h2 class="font-serif text-xl font-bold text-maroon">{pick(p.name, lang)}</h2>
+          <a href={path(lang, `/education/programs/${p.slug}`)} class="text-sm font-semibold text-maroon">{t(lang, 'cta.details')} →</a>
+        </div>
+        <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {p.lecturers.map((l) => (
+            <li class="rounded-md border border-line bg-white px-4 py-3">
+              <div class="font-semibold">{l.name}</div>
+              <div class="text-sm text-muted">{roleLabel(l.role, lang)}</div>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+  </div>
+</Base>

@@ -1,0 +1,30 @@
+---
+import ContentPage from '../../components/ContentPage.astro';
+import { t, path, pick } from '../../i18n/ui';
+import { langPaths, langFromParam } from '../../lib/routes';
+import programs from '../../data/programs.json';
+import site from '../../data/site.json';
+export function getStaticPaths() { return langPaths(); }
+const lang = langFromParam(Astro.params.lang);
+const open = programs.programs.filter((p) => p.status === 'open');
+---
+<ContentPage lang={lang} slug="admissions">
+  <a href={site.applyUrl} target="_blank" rel="noopener" class="mt-2 inline-block rounded bg-maroon px-6 py-3 font-semibold text-white no-underline hover:bg-maroon-dark">{t(lang, 'cta.apply')} →</a>
+  <h2 class="mb-4 mt-12 font-serif text-2xl font-bold text-maroon">{t(lang, 'label.fee')}</h2>
+  <div class="max-w-3xl overflow-x-auto rounded-md border border-line">
+    <table class="w-full text-left text-[15px]">
+      <thead class="bg-maroon text-white">
+        <tr><th class="px-4 py-3 font-semibold">{t(lang, 'label.curriculum')}</th><th class="px-4 py-3 font-semibold">{t(lang, 'label.duration')}</th><th class="px-4 py-3 text-right font-semibold">{lang === 'th' ? 'บาท/ภาคการศึกษา' : 'THB per term'}</th></tr>
+      </thead>
+      <tbody>
+        {open.map((p, i) => (
+          <tr class:list={[i % 2 ? 'bg-cream' : 'bg-white']}>
+            <td class="px-4 py-3"><a href={path(lang, `/education/programs/${p.slug}`)} class="text-maroon">{pick(p.degree, lang).replace(/ \(.+\)/, '')} {pick(p.name, lang)}</a></td>
+            <td class="px-4 py-3 text-muted">{pick(p.duration, lang)}</td>
+            <td class="px-4 py-3 text-right font-semibold">{p.fee.toLocaleString()}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</ContentPage>

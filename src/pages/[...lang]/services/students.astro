@@ -1,0 +1,15 @@
+---
+import ContentPage from '../../../components/ContentPage.astro';
+import DocList from '../../../components/DocList.astro';
+import { t } from '../../../i18n/ui';
+import { langPaths, langFromParam } from '../../../lib/routes';
+import documents from '../../../data/documents.json';
+export function getStaticPaths() { return langPaths(); }
+const lang = langFromParam(Astro.params.lang);
+---
+<ContentPage lang={lang} slug="students" crumbs={[{ label: t(lang, 'nav.services'), href: '/services/students' }]}>
+  <h2 class="mb-4 mt-10 font-serif text-2xl font-bold text-maroon">{lang === 'th' ? 'ระเบียบและข้อบังคับ' : 'Regulations'}</h2>
+  <div class="max-w-3xl"><DocList lang={lang} items={documents.regulations} /></div>
+  <h2 class="mb-4 mt-10 font-serif text-2xl font-bold text-maroon">{t(lang, 'nav.services.forms')}</h2>
+  <div class="max-w-3xl"><DocList lang={lang} items={documents.studentForms} /></div>
+</ContentPage>

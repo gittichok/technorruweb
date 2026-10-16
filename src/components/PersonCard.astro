@@ -1,0 +1,14 @@
+---
+interface Props { name: string; position: string; photo?: string; featured?: boolean }
+const { name, position, photo, featured = false } = Astro.props;
+const initials = name.replace(/^(นาย|นางสาว|นาง|อาจารย์|ผู้ช่วยศาสตราจารย์|รองศาสตราจารย์|ดร\.|Mr\.|Mrs\.|Ms\.|Dr\.|Asst\. Prof\.|\s)+/g, '').trim().charAt(0);
+---
+<div class:list={['flex flex-col items-center rounded-md border bg-white p-6 text-center', featured ? 'border-gold shadow-md' : 'border-line']}>
+  <div class:list={['mb-4 overflow-hidden rounded-full border-4 border-parchment bg-cream', featured ? 'h-40 w-40' : 'h-28 w-28']}>
+    {photo
+      ? <img src={photo} alt={name} loading="lazy" class="h-full w-full object-cover" />
+      : <div class="flex h-full w-full items-center justify-center font-serif text-4xl font-bold text-maroon/40">{initials}</div>}
+  </div>
+  <div class:list={['font-semibold text-ink', featured && 'font-serif text-xl']}>{name}</div>
+  <div class="mt-1 text-sm text-muted">{position}</div>
+</div>
