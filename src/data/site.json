@@ -7,10 +7,15 @@
     "th": "ห้องปฏิบัติการ ศูนย์การศึกษาบางคล้า อำเภอบางคล้า จังหวัดฉะเชิงเทรา",
     "en": "Laboratories at Bang Khla Campus, Chachoengsao"
   },
-  "phone": "038-512-404",
-  "phoneAlt": "038-500000 ต่อ 6300, 7301",
+  "phone": {
+    "th": "038-500000 ต่อ 6300, 7301",
+    "en": "+66 38 500 000 ext. 6300, 7301"
+  },
   "email": "industrial@rru.ac.th",
-  "hours": { "th": "จันทร์-ศุกร์ 08.30-16.30 น.", "en": "Mon-Fri 08:30-16:30" },
+  "hours": {
+    "th": "จันทร์-ศุกร์ 08.30-16.30 น.",
+    "en": "Mon-Fri 08:30-16:30"
+  },
   "mapEmbed": "https://www.google.com/maps?q=Rajabhat+Rajanagarindra+University&output=embed",
   "applyUrl": "https://reg.rru.ac.th/web_admis/app_form.php",
   "deanHotlineUrl": "https://script.google.com/a/macros/techno.rru.ac.th/s/AKfycbxQGV_eQhjLD394j8giznRljfYFEeE8UtV5zuAn-dKQ9-GeOGL3QY4LwmMz9OdWyRjD/exec",
@@ -22,21 +27,116 @@
   },
   "university": "https://www.rru.ac.th/",
   "stats": [
-    { "value": "7", "label": { "th": "หลักสูตรระดับปริญญาตรี", "en": "Undergraduate programs" } },
-    { "value": "2542", "label": { "th": "ปีที่ก่อตั้งคณะ (พ.ศ.)", "en": "Founded (B.E.)" } },
-    { "value": "EEC", "label": { "th": "ตั้งอยู่ในเขตพัฒนาพิเศษภาคตะวันออก", "en": "Located in the Eastern Economic Corridor" } },
-    { "value": "CWIE", "label": { "th": "เรียนควบคู่การทำงานจริง", "en": "Work-integrated learning" } }
+    {
+      "value": "7",
+      "label": {
+        "th": "หลักสูตรระดับปริญญาตรี",
+        "en": "Undergraduate programs"
+      }
+    },
+    {
+      "value": "2542",
+      "label": {
+        "th": "ปีที่ก่อตั้งคณะ (พ.ศ.)",
+        "en": "Founded (B.E.)"
+      }
+    },
+    {
+      "value": "EEC",
+      "label": {
+        "th": "ตั้งอยู่ในเขตพัฒนาพิเศษภาคตะวันออก",
+        "en": "Located in the Eastern Economic Corridor"
+      }
+    },
+    {
+      "value": "CWIE",
+      "label": {
+        "th": "เรียนควบคู่การทำงานจริง",
+        "en": "Work-integrated learning"
+      }
+    }
   ],
   "quickLinks": [
-    { "label": { "th": "สมัครเรียนออนไลน์", "en": "Apply online" }, "url": "https://reg.rru.ac.th/web_admis/app_form.php" },
-    { "label": { "th": "สำนักส่งเสริมวิชาการและงานทะเบียน", "en": "Registrar" }, "url": "https://reg.rru.ac.th/" },
-    { "label": { "th": "เว็บไซต์คณะ (เดิม)", "en": "Former faculty site" }, "url": "https://sites.google.com/techno.rru.ac.th/web" }
+    {
+      "label": {
+        "th": "สมัครเรียนออนไลน์",
+        "en": "Apply online"
+      },
+      "url": "https://reg.rru.ac.th/web_admis/app_form.php"
+    },
+    {
+      "label": {
+        "th": "สำนักส่งเสริมวิชาการและงานทะเบียน",
+        "en": "Registrar"
+      },
+      "url": "https://reg.rru.ac.th/"
+    },
+    {
+      "label": {
+        "th": "เว็บไซต์คณะ (เดิม)",
+        "en": "Former faculty site"
+      },
+      "url": "https://sites.google.com/techno.rru.ac.th/web"
+    }
   ],
   "infoSystems": [
-    { "name": { "th": "ระบบรับสมัครนักศึกษา", "en": "Admissions system" }, "desc": { "th": "สมัครเรียนออนไลน์ มหาวิทยาลัยราชภัฏราชนครินทร์", "en": "University online application" }, "url": "https://reg.rru.ac.th/web_admis/app_form.php" },
-    { "name": { "th": "ระบบบริการการศึกษา", "en": "Registration system" }, "desc": { "th": "ลงทะเบียน ตรวจสอบผลการเรียน", "en": "Course registration and grades" }, "url": "https://reg.rru.ac.th/" },
-    { "name": { "th": "รายงานข้อมูลคณะ (Looker Studio)", "en": "Faculty dashboards (Looker Studio)" }, "desc": { "th": "รายงานสถิติและตัวชี้วัดของคณะ", "en": "Faculty statistics and indicators" }, "url": "https://sites.google.com/techno.rru.ac.th/web" },
-    { "name": { "th": "ระบบขอใช้ห้อง", "en": "Room booking" }, "desc": { "th": "จองห้องเรียนและห้องประชุม", "en": "Book classrooms and meeting rooms" }, "url": "https://sites.google.com/techno.rru.ac.th/web" },
-    { "name": { "th": "สายตรงคณบดี", "en": "Dean's direct line" }, "desc": { "th": "ร้องเรียน เสนอแนะ ถึงคณบดีโดยตรง", "en": "Feedback and complaints to the dean" }, "url": "https://script.google.com/a/macros/techno.rru.ac.th/s/AKfycbxQGV_eQhjLD394j8giznRljfYFEeE8UtV5zuAn-dKQ9-GeOGL3QY4LwmMz9OdWyRjD/exec" }
-  ]
+    {
+      "name": {
+        "th": "ระบบรับสมัครนักศึกษา",
+        "en": "Admissions system"
+      },
+      "desc": {
+        "th": "สมัครเรียนออนไลน์ มหาวิทยาลัยราชภัฏราชนครินทร์",
+        "en": "University online application"
+      },
+      "url": "https://reg.rru.ac.th/web_admis/app_form.php"
+    },
+    {
+      "name": {
+        "th": "ระบบบริการการศึกษา",
+        "en": "Registration system"
+      },
+      "desc": {
+        "th": "ลงทะเบียน ตรวจสอบผลการเรียน",
+        "en": "Course registration and grades"
+      },
+      "url": "https://reg.rru.ac.th/"
+    },
+    {
+      "name": {
+        "th": "รายงานข้อมูลคณะ (Looker Studio)",
+        "en": "Faculty dashboards (Looker Studio)"
+      },
+      "desc": {
+        "th": "รายงานสถิติและตัวชี้วัดของคณะ",
+        "en": "Faculty statistics and indicators"
+      },
+      "url": "https://sites.google.com/techno.rru.ac.th/web"
+    },
+    {
+      "name": {
+        "th": "ระบบขอใช้ห้อง",
+        "en": "Room booking"
+      },
+      "desc": {
+        "th": "จองห้องเรียนและห้องประชุม",
+        "en": "Book classrooms and meeting rooms"
+      },
+      "url": "https://sites.google.com/techno.rru.ac.th/web"
+    },
+    {
+      "name": {
+        "th": "สายตรงคณบดี",
+        "en": "Dean's direct line"
+      },
+      "desc": {
+        "th": "ร้องเรียน เสนอแนะ ถึงคณบดีโดยตรง",
+        "en": "Feedback and complaints to the dean"
+      },
+      "url": "https://script.google.com/a/macros/techno.rru.ac.th/s/AKfycbxQGV_eQhjLD394j8giznRljfYFEeE8UtV5zuAn-dKQ9-GeOGL3QY4LwmMz9OdWyRjD/exec"
+    }
+  ],
+  "logo": "https://www.rru.ac.th/roomtest/assets/favicon_round.png",
+  "heroImage": "https://www.rru.ac.th/roomtest/assets/mockup/hero1.png",
+  "phoneTel": "+6638500000"
 }

@@ -1,15 +1,7 @@
 ---
-// ตราชั่วคราว: เปลี่ยนเป็นโลโก้จริงโดยวางไฟล์ public/images/logo.svg แล้วแก้ไฟล์นี้
+// โลโก้คณะ: แก้ลิงก์ได้ใน CMS > ข้อมูลคณะ > ข้อมูลติดต่อและลิงก์ > โลโก้
+import site from '../data/site.json';
 interface Props { size?: number }
 const { size = 52 } = Astro.props;
 ---
-<svg width={size} height={size} viewBox="0 0 64 64" aria-hidden="true">
-  <circle cx="32" cy="32" r="30" fill="#7B1E2B" stroke="#C8A24C" stroke-width="3" />
-  <circle cx="32" cy="32" r="23" fill="none" stroke="#E8C977" stroke-width="1" />
-  <g fill="#E8C977">
-    <path d="M32 14l3 6h-6z" />
-    <rect x="22" y="24" width="20" height="3" rx="1" />
-    <rect x="30.5" y="27" width="3" height="16" />
-    <path d="M20 46h24l-2-4H22z" />
-  </g>
-</svg>
+<img src={site.logo} alt="" width={size} height={size} class="shrink-0 rounded-full" style={`width:${size}px;height:${size}px`} />

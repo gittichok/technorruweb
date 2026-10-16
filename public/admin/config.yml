@@ -94,6 +94,7 @@ collections:
                 summary: "{{fields.name}}"
                 fields: [{ name: name, label: ชื่อ, widget: string }, { name: role, label: ตำแหน่ง, widget: string }]
               - { name: facebook, label: ลิงก์ Facebook หลักสูตร, widget: string, required: false }
+              - { name: poster, label: โปสเตอร์หลักสูตร, widget: image, required: false }
 
       - name: people
         label: ผู้บริหารและบุคลากร
@@ -151,8 +152,10 @@ collections:
         fields:
           - { name: address, label: ที่อยู่, widget: object, fields: [{ name: th, label: ไทย, widget: text }, { name: en, label: English, widget: text }] }
           - { name: campus, label: ที่ตั้งห้องปฏิบัติการ, widget: object, fields: [{ name: th, label: ไทย, widget: string }, { name: en, label: English, widget: string }] }
-          - { name: phone, label: โทรศัพท์หลัก, widget: string }
-          - { name: phoneAlt, label: โทรศัพท์สำรอง, widget: string }
+          - { name: phone, label: โทรศัพท์, widget: object, fields: [{ name: th, label: ไทย, widget: string }, { name: en, label: English, widget: string }] }
+          - { name: phoneTel, label: เบอร์สำหรับกดโทร (+66...), widget: string }
+          - { name: logo, label: โลโก้, widget: image }
+          - { name: heroImage, label: ภาพหน้าแรก, widget: image }
           - { name: email, label: อีเมล, widget: string }
           - { name: hours, label: เวลาทำการ, widget: object, fields: [{ name: th, label: ไทย, widget: string }, { name: en, label: English, widget: string }] }
           - { name: mapEmbed, label: ลิงก์แผนที่ (embed), widget: string }

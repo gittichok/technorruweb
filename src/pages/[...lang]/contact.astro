@@ -8,7 +8,7 @@ export function getStaticPaths() { return langPaths(); }
 const lang = langFromParam(Astro.params.lang);
 const rows = [
   { label: t(lang, 'label.address'), value: pick(site.address, lang) },
-  { label: t(lang, 'label.tel'), value: `${site.phone} · ${site.phoneAlt}` },
+  { label: t(lang, 'label.tel'), value: pick(site.phone, lang), href: `tel:${site.phoneTel}` },
   { label: t(lang, 'label.email'), value: site.email, href: `mailto:${site.email}` },
   { label: t(lang, 'footer.hours'), value: pick(site.hours, lang) },
   { label: 'Facebook', value: 'facebook.com/techno.rru.ac.th', href: site.social.facebook },

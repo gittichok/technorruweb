@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import IntroOverlay from '../components/IntroOverlay.astro';
 import intro from '../data/intro.json';
+import siteData from '../data/site.json';
 import { t, type Lang } from '../i18n/ui';
 import { switchPath } from '../lib/routes';
 
@@ -25,7 +26,7 @@ const enUrl = new URL(switchPath(Astro.url.pathname, 'en'), site);
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{fullTitle}</title>
     <meta name="description" content={desc} />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href={siteData.logo} />
     <link rel="canonical" href={new URL(Astro.url.pathname, site)} />
     <link rel="alternate" hreflang="th" href={thUrl} />
     <link rel="alternate" hreflang="en" href={enUrl} />

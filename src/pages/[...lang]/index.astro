@@ -45,10 +45,7 @@ const gateways = [
       </div>
       <div class="relative hidden lg:block">
         <div class="aspect-[4/3] rounded-md border border-gold/40 bg-maroon-dark/60 p-3 shadow-2xl">
-          <div class="flex h-full w-full items-center justify-center rounded bg-[linear-gradient(135deg,#561420,#3a0e15)] text-center text-sm text-parchment/70">
-            <img src="/images/hero.jpg" alt="" class="hidden h-full w-full rounded object-cover" onerror="this.remove()" onload="this.classList.remove('hidden'); this.nextElementSibling?.remove()" />
-            <span class="px-8">{L('[ภาพนักศึกษาในห้องปฏิบัติการ วางไฟล์ public/images/hero.jpg]', '[Hero photo: public/images/hero.jpg]')}</span>
-          </div>
+          <img src={site.heroImage} alt={L('กิจกรรมนักศึกษาคณะเทคโนโลยีอุตสาหกรรม', 'Students at the Faculty of Industrial Technology')} class="h-full w-full rounded object-cover" />
         </div>
         <div class="absolute -bottom-5 -left-5 rounded bg-gold px-5 py-3 font-serif text-maroon-deep shadow-lg">
           <div class="text-2xl font-bold">{L('ใฝ่รู้ สู้งาน', 'Eager to learn')}</div>

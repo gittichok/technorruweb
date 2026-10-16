@@ -30,6 +30,7 @@ const facts = [
       {p.status === 'pending' && (
         <div class="mb-8 rounded-md border-l-4 border-gold bg-parchment px-5 py-4 text-sm">{L('หลักสูตรนี้อยู่ระหว่างรออนุมัติจากสภามหาวิทยาลัย', 'This program is awaiting University Council approval.')}</div>
       )}
+      {p.poster && <img src={p.poster} alt={pick(p.name, lang)} loading="lazy" class="mb-10 w-full max-w-xl rounded-md border border-line shadow-sm" />}
       <h2 class="mb-4 font-serif text-2xl font-bold text-maroon">{t(lang, 'label.lecturers')}</h2>
       <ul class="grid gap-3 sm:grid-cols-2">
         {p.lecturers.map((l) => (
